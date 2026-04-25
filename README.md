@@ -29,7 +29,7 @@ cd sunhari-stone
 ```
 
 ### 2. Install dependencies
-```bash
+```bash 
 npm install
 ```
 
