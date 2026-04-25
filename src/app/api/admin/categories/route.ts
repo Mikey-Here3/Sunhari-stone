@@ -28,6 +28,9 @@ export async function GET(request: NextRequest) {
     console.log("Database unavailable, using static data");
   }
 
+  return NextResponse.json(categories);
+}
+
 /**
  * POST /api/admin/categories
  * Create a new category
