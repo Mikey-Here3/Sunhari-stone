@@ -44,18 +44,15 @@ export default function Footer() {
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="text-gold"
               >
-                <path
-                  d="M12 2L2 12L12 22L22 12L12 2Z"
-                  fill="currentColor"
-                  opacity="0.2"
-                />
-                <path
-                  d="M12 2L2 12L12 22L22 12L12 2Z"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
+                <path d="M6 3h12l4 6-10 12L2 9z" fill="currentColor" fillOpacity="0.1" />
+                <path d="M11 3L8 9l4 12 4-12-3-6" />
+                <path d="M2 9h20" />
               </svg>
               <span className="font-heading text-xl font-semibold text-white">
                 {SITE_NAME}

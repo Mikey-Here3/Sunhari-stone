@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     default: "Sunhari Stone — Elegant Jewelry & Accessories",
     template: "%s | Sunhari Stone",
   },
+  icons: {
+    icon: "/favicon.ico",
+  },
   description:
     "Discover exquisite handcrafted jewelry and accessories at Sunhari Stone. Shop rings, necklaces, bracelets, earrings, scrunchies, hair clips, and curated gift sets. Order directly via WhatsApp.",
   keywords: [

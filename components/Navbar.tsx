@@ -51,24 +51,21 @@ export default function Navbar() {
             className="flex items-center gap-2 group"
             id="navbar-logo"
           >
-            {/* Gold diamond icon */}
+            {/* Elegant Jewelry Icon */}
             <svg
-              width="28"
-              height="28"
+              width="32"
+              height="32"
               viewBox="0 0 24 24"
               fill="none"
-              className="text-gold group-hover:scale-110 transition-transform"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-gold group-hover:scale-110 transition-all duration-500"
             >
-              <path
-                d="M12 2L2 12L12 22L22 12L12 2Z"
-                fill="currentColor"
-                opacity="0.2"
-              />
-              <path
-                d="M12 2L2 12L12 22L22 12L12 2Z"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              />
+              <path d="M6 3h12l4 6-10 12L2 9z" fill="currentColor" fillOpacity="0.1" />
+              <path d="M11 3L8 9l4 12 4-12-3-6" />
+              <path d="M2 9h20" />
             </svg>
             <span className="font-heading text-xl sm:text-2xl font-semibold text-charcoal tracking-wide">
               {SITE_NAME}
