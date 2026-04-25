@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sunhari Stone — Elegant Jewelry eCommerce
 
-## Getting Started
+Sunhari Stone is a production-ready eCommerce platform for jewelry and accessories. It features an elegant, mobile-first design, a robust admin panel for product management, and a WhatsApp-based ordering system.
 
-First, run the development server:
+## ✨ Features
 
+- **Elegant Design**: Minimalist gold and ivory aesthetic tailored for jewelry.
+- **WhatsApp Ordering**: Users can order directly via WhatsApp with pre-filled messages.
+- **Admin Panel**: Full CRUD operations for products and categories.
+- **Image Uploads**: Integrated image upload system for products.
+- **SEO Optimized**: Dynamic metadata, sitemaps, and search-engine-friendly structure.
+- **Responsive**: Fully optimized for mobile, tablet, and desktop.
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14+ (App Router)
+- **Styling**: Tailwind CSS
+- **Database**: Neon (PostgreSQL)
+- **ORM**: Prisma
+- **Auth**: JWT-based Admin Authentication
+- **Deployment**: Vercel
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <your-repo-url>
+cd sunhari-stone
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Environment Setup
+Create a `.env.local` file in the root directory:
+```env
+DATABASE_URL="your-neon-db-url"
+ADMIN_PASSWORD="your-strong-password"
+JWT_SECRET="your-random-secret-key"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Database Setup
+Push the schema to your Neon database:
+```bash
+npx prisma db push
+```
 
-## Learn More
+Seed the database with sample products:
+```bash
+npm run db:seed
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 5. Run the development server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) to see your store.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/src/app`: Next.js pages and API routes.
+- `/src/components`: Reusable UI components.
+- `/src/lib`: Utility functions and database client.
+- `/prisma`: Database schema and seed scripts.
+- `/public`: Static assets and uploaded images.
 
-## Deploy on Vercel
+## 🛡️ Admin Panel
+Access the admin panel at `/admin`.
+Default password (if not set in env): `admin123`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📦 Deployment
+Deploy to Vercel with one click. Remember to add your environment variables in the Vercel dashboard.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Crafted with ✨ love by Sunhari Stone.

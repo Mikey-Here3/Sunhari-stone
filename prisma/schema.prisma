@@ -1,0 +1,58 @@
+// ============================================
+// Prisma Schema for Sunhari Stone
+// Jewelry eCommerce with Admin Panel
+// ============================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// --- Category Model ---
+model Category {
+  id        String    @id @default(cuid())
+  name      String    @unique
+  slug      String    @unique
+  imageUrl  String?
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+// --- Product Model ---
+model Product {
+  id            String   @id @default(cuid())
+  name          String
+  slug          String   @unique
+  description   String
+  price         Float
+  imageUrl      String
+  category      Category @relation(fields: [categoryId], references: [id])
+  categoryId    String
+  isNew         Boolean  @default(false)
+  discount      Int?     // percentage discount (e.g., 20 = 20% off)
+  tags          String[] // SEO tags for the product
+  metaTitle     String?  // Custom SEO title
+  metaDesc      String?  // Custom SEO description
+  isFeatured    Boolean  @default(false)
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([categoryId])
+  @@index([isActive])
+  @@index([isFeatured])
+}
+
+// --- Admin User Model ---
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // bcrypt hashed
+  name      String
+  createdAt DateTime @default(now())
+}
