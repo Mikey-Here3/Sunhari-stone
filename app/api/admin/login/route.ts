@@ -6,24 +6,46 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 
-// Admin password — change this in production via env vars
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
+import { prisma } from "@/lib/prisma";
+import bcrypt from "bcryptjs";
+
 const JWT_SECRET = process.env.JWT_SECRET || "sunhari-stone-secret-key-2025";
 
 export async function POST(request: NextRequest) {
   try {
-    const { password } = await request.json();
+    const { email, password } = await request.json();
 
-    if (password !== ADMIN_PASSWORD) {
+    if (!email || !password) {
       return NextResponse.json(
-        { error: "Invalid password" },
+        { error: "Email and password are required" },
+        { status: 400 }
+      );
+    }
+
+    // Find admin user in database
+    const admin = await prisma.adminUser.findUnique({
+      where: { email },
+    });
+
+    if (!admin) {
+      return NextResponse.json(
+        { error: "Invalid credentials" },
+        { status: 401 }
+      );
+    }
+
+    // Compare password
+    const isMatch = await bcrypt.compare(password, admin.password);
+    if (!isMatch) {
+      return NextResponse.json(
+        { error: "Invalid credentials" },
         { status: 401 }
       );
     }
 
     // Generate JWT token (valid for 24 hours)
     const token = jwt.sign(
-      { role: "admin", iat: Date.now() },
+      { userId: admin.id, email: admin.email, role: "admin" },
       JWT_SECRET,
       { expiresIn: "24h" }
     );
