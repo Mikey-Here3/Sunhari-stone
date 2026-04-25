@@ -6,10 +6,27 @@
 
 import { PrismaClient } from "@prisma/client";
 
+import bcrypt from "bcryptjs";
+
 const prisma = new PrismaClient();
 
 async function main() {
   console.log("🌱 Seeding database...");
+
+  // --- Create Admin User ---
+  const adminEmail = "admin@sunharistone.com";
+  const hashedPassword = await bcrypt.hash("SunhariAdmin2024!", 10);
+
+  await prisma.adminUser.upsert({
+    where: { email: adminEmail },
+    update: {},
+    create: {
+      email: adminEmail,
+      password: hashedPassword,
+      name: "Sunhari Admin",
+    },
+  });
+  console.log(`  ✓ Admin: ${adminEmail}`);
 
   // --- Create Categories ---
   const categoriesData = [
