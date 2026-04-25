@@ -51,9 +51,14 @@ export async function POST(request: NextRequest) {
     );
 
     return NextResponse.json({ token, message: "Login successful" });
-  } catch {
+  } catch (error: any) {
+    console.error("Login error:", error);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { 
+        error: "Internal server error", 
+        details: error.message || "Unknown error",
+        hint: "Check if DATABASE_URL is set and prisma db push has been run."
+      },
       { status: 500 }
     );
   }

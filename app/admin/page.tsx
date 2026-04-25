@@ -33,7 +33,8 @@ export default function AdminLoginPage() {
         localStorage.setItem("admin_token", data.token);
         router.push("/admin/dashboard");
       } else {
-        setError(data.error || "Invalid credentials");
+        setError(data.details || data.error || "Invalid credentials");
+        if (data.hint) console.log("HINT:", data.hint);
       }
     } catch {
       setError("Something went wrong. Please try again.");
