@@ -9,6 +9,8 @@ import CategoryCard from "@/components/CategoryCard";
 import { getFeaturedProducts, getCategories } from "@/lib/data";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   // Fetch data server-side
   const [featuredProducts, categories] = await Promise.all([
