@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { getProducts, getCategories } from "@/lib/data";
 
-const DOMAIN = "https://sunharistone.vercel.app";
+const DOMAIN = "https://sunhari-stone.vercel.app";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch dynamic data

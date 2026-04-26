@@ -68,6 +68,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <head>
+        {/* Google AdSense Verification */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5779843318196699"
+          crossOrigin="anonymous"
+        ></script>
         {/* Structured Data for SEO */}
         <script
           type="application/ld+json"
@@ -77,7 +83,7 @@ export default function RootLayout({
               "@type": "Store",
               name: "Sunhari Stone",
               description: "Elegant handcrafted jewelry and accessories",
-              url: "https://sunharistone.vercel.app",
+              url: "https://sunhari-stone.vercel.app",
               telephone: "+923358432540",
               address: {
                 "@type": "PostalAddress",
