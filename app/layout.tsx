@@ -84,7 +84,7 @@ export default function RootLayout({
               "@type": "Store",
               name: "Sunhari Stone",
               description: "Elegant handcrafted jewelry and accessories",
-              url: "https://sunhari-stone.vercel.app",
+              url: "https://sunharistone.online",
               telephone: "+923358432540",
               address: {
                 "@type": "PostalAddress",

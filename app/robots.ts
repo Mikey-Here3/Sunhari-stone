@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/admin/", // Keep admin panel private
     },
-    sitemap: "https://sunhari-stone.vercel.app/sitemap.xml",
+    sitemap: "https://sunharistone.online/sitemap.xml",
   };
 }
