@@ -69,6 +69,7 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased">
       <head>
         {/* Google AdSense Verification */}
+        <meta name="google-adsense-account" content="ca-pub-5779843318196699" />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5779843318196699"
